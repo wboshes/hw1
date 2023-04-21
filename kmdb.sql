@@ -158,33 +158,35 @@ CREATE TABLE actors (
 
 CREATE TABLE movie_acted_in (
   actor_name TEXT,
-  movie_title TEXT,
-  PRIMARY KEY(actor_id, movie_id)
+  movie_title TEXT
 );  
 
 INSERT INTO movies (
     movie_title,
     year_released,
-    mppa_rating
+    mppa_rating,
+    studio_id
 )
 VALUES (
-    "Batman Begins", 2005, "PG-13"
+    "Batman Begins", 2005, "PG-13", 1
 );
 INSERT INTO movies (
     movie_title,
     year_released,
-    mppa_rating
+    mppa_rating,
+    studio_id
 )
 VALUES (
-    "The Dark Knight", 2008, "PG-13"
+    "The Dark Knight", 2008, "PG-13", 1
 );
 INSERT INTO movies (
     movie_title,
     year_released,
-    mppa_rating
+    mppa_rating,
+    studio_id
 )
 VALUES (
-    "The Dark Knight Rises", 2012, "PG-13"
+    "The Dark Knight Rises", 2012, "PG-13", 1
 );
 
 INSERT INTO studios (
@@ -376,5 +378,4 @@ VALUES (
 
 SELECT movies.movie_title, movies.year_released, movies.mppa_rating, studios.studio_name
 FROM movies INNER JOIN studios ON movies.studio_id = studios.id
-GROUP BY movies.movie_title
 ;
