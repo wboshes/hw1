@@ -135,6 +135,7 @@
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS movie_acted_in;
 
 CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -146,14 +147,20 @@ CREATE TABLE movies (
 
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  studio_name TEXT,
+  studio_name TEXT
 );
 
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT,
-  character_played TEXT,
+  character_played TEXT
 );
+
+CREATE TABLE movie_acted_in (
+  actor_name TEXT,
+  movie_title TEXT,
+  PRIMARY KEY(actor_id, movie_id)
+);  
 
 INSERT INTO movies (
     movie_title,
@@ -162,7 +169,7 @@ INSERT INTO movies (
 )
 VALUES (
     "Batman Begins", 2005, "PG-13"
-)
+);
 INSERT INTO movies (
     movie_title,
     year_released,
@@ -170,7 +177,7 @@ INSERT INTO movies (
 )
 VALUES (
     "The Dark Knight", 2008, "PG-13"
-)
+);
 INSERT INTO movies (
     movie_title,
     year_released,
@@ -178,14 +185,14 @@ INSERT INTO movies (
 )
 VALUES (
     "The Dark Knight Rises", 2012, "PG-13"
-)
+);
 
 INSERT INTO studios (
     studio_name
 )
 VALUES (
     "Warner Bros."
-)
+);
 
 INSERT INTO actors (
     actor_name,
@@ -193,67 +200,181 @@ INSERT INTO actors (
 )
 VALUES (
     "Christian Bale", "Bruce Wayne"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Michael Caine", "Alfred"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Liam Neeson", "Ra's Al Ghul"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Katie Holmes", "Rachel Dawes"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Gary Oldman", "Commissioner Gordon"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Heath Ledger", "Joker"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Aaron Eckhart", "Harvey Dent"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Tom Hardy", "Bane"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Joseph Gordon-Levitt", "John Blake"
-)
+);
 INSERT INTO actors (
     actor_name,
     character_played
 )
 VALUES (
     "Anne Hathaway", "Selina Kyle"
+);
+
+
+
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
 )
+VALUES (
+    "Christian Bale", "Batman Begins"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Michael Caine", "Batman Begins"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Liam Neeson", "Batman Begins"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Katie Holmes", "Batman Begins"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Gary Oldman", "Batman Begins"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Christian Bale", "The Dark Knight"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Heath Ledger", "The Dark Knight"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Aaron Eckhart", "The Dark Knight"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    " Michael Caine", "The Dark Knight"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Maggie Gyllenhaal", "The Dark Knight"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Christian Bale", "The Dark Knight Rises"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Gary Oldman", "The Dark Knight Rises"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Tom Hardy", "The Dark Knight Rises"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Joseph Gordon-Levitt", "The Dark Knight Rises"
+);
+INSERT INTO movie_acted_in (
+    actor_name,
+    movie_title
+)
+VALUES (
+    "Anne Hathaway", "The Dark Knight Rises"
+);
+
+
+SELECT movies.movie_title, movies.year_released, movies.mppa_rating, studios.studio_name
+FROM movies INNER JOIN studios ON movies.studio_id = studios.id
+GROUP BY movies.movie_title
+;
