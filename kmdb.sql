@@ -113,19 +113,10 @@
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
+
 
 -- The SQL statement for the movies output
 -- TODO!
-
--- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
 
 
 -- The SQL statement for the cast output
@@ -194,6 +185,14 @@ INSERT INTO studios (
 )
 VALUES (
     "Warner Bros."
+);
+
+INSERT INTO actors (
+    actor_name,
+    character_played
+)
+VALUES (
+    "Maggie Gyllenhaal", "Rachel Dawes"
 );
 
 INSERT INTO actors (
@@ -330,7 +329,7 @@ INSERT INTO movie_acted_in (
     movie_title
 )
 VALUES (
-    " Michael Caine", "The Dark Knight"
+    "Michael Caine", "The Dark Knight"
 );
 INSERT INTO movie_acted_in (
     actor_name,
@@ -339,6 +338,7 @@ INSERT INTO movie_acted_in (
 VALUES (
     "Maggie Gyllenhaal", "The Dark Knight"
 );
+
 INSERT INTO movie_acted_in (
     actor_name,
     movie_title
@@ -376,6 +376,33 @@ VALUES (
 );
 
 
+
+-- Prints a header for the movies output
+.print "Movies"
+.print "======"
+.print ""
+
 SELECT movies.movie_title, movies.year_released, movies.mppa_rating, studios.studio_name
 FROM movies INNER JOIN studios ON movies.studio_id = studios.id
 ;
+
+
+-- Prints a header for the cast output
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
+
+SELECT movie_acted_in.movie_title, movie_acted_in.actor_name, actors.character_played
+FROM movie_acted_in INNER JOIN actors ON movie_acted_in.actor_name = actors.actor_name
+;
+
+
+-- Top Cast
+-- ========
+
+-- Batman Begins          Christian Bale        Bruce Wayne
+-- Batman Begins          Michael Caine         Alfred
+-- Batman Begins          Liam Neeson           Ra's Al Ghul
+-- Batman Begins          Katie Holmes          Rachel Dawes
+
