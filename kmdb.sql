@@ -140,20 +140,19 @@ CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   movie_title TEXT,
   year_released INTEGER,
-  mppa_rating INTEGER
+  mppa_rating INTEGER,
+  studio_id INTEGER
 );
 
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   studio_name TEXT,
-  movie_id INTEGER
 );
 
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT,
   character_played TEXT,
-  movie_id INTEGER
 );
 
 INSERT INTO movies (
@@ -182,8 +181,7 @@ VALUES (
 )
 
 INSERT INTO studios (
-    studio_name,
-    movie_id
+    studio_name
 )
 VALUES (
     "Warner Bros."
@@ -191,81 +189,71 @@ VALUES (
 
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Christian Bale", "Bruce Wayne",
+    "Christian Bale", "Bruce Wayne"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Michael Caine", "Alfred",
+    "Michael Caine", "Alfred"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Liam Neeson", "Ra's Al Ghul",
+    "Liam Neeson", "Ra's Al Ghul"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Katie Holmes", "Rachel Dawes",
+    "Katie Holmes", "Rachel Dawes"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Gary Oldman", "Commissioner Gordon",
+    "Gary Oldman", "Commissioner Gordon"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Heath Ledger", "Joker",
+    "Heath Ledger", "Joker"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Aaron Eckhart", "Harvey Dent",
+    "Aaron Eckhart", "Harvey Dent"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Tom Hardy", "Bane",
+    "Tom Hardy", "Bane"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Joseph Gordon-Levitt", "John Blake",
+    "Joseph Gordon-Levitt", "John Blake"
 )
 INSERT INTO actors (
     actor_name,
-    character_played,
-    movie_id
+    character_played
 )
 VALUES (
-    "Anne Hathaway", "Selina Kyle",
+    "Anne Hathaway", "Selina Kyle"
 )
