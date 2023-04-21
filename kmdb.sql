@@ -398,11 +398,5 @@ FROM movie_acted_in INNER JOIN actors ON movie_acted_in.actor_name = actors.acto
 ;
 
 
--- Top Cast
--- ========
 
--- Batman Begins          Christian Bale        Bruce Wayne
--- Batman Begins          Michael Caine         Alfred
--- Batman Begins          Liam Neeson           Ra's Al Ghul
--- Batman Begins          Katie Holmes          Rachel Dawes
 
